@@ -1,0 +1,20 @@
+from gpiozero import MotionSensor
+
+import time 
+import datatime
+
+ts = time.time()
+st = datatime.datatime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
+time = datatime.datetime.now()
+pir = MotionSensor(4)
+
+x = 1
+
+def current_time():
+  return datatime.now().strftime('%Y-%m-%d %H:%M:%S')
+  
+while True:
+  if pir.motion_detected:
+  print("Motion detected")
+  print (x)
+  pir.wait_for_no_motion()
